@@ -30,5 +30,10 @@ random.seed(seed)
 for x in range(amount):
     password = "".join(random.sample(all,length))
     print(password)
-    with open('password.txt','a')as f:
-        f.write(password+'\n')
+    try:
+        with open('password.txt','a')as f:
+            f.write(password+'\n')
+    except ValueError as e:
+        print(e)
+    finally:
+        f.close()
